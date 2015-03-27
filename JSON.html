@@ -3,6 +3,31 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <script>
+        Object.prototype.toJSON = function () {
+            var str = '';
+            var restrictedKeys = ['id', 'role'];
+            for (var prop in this) {
+                if (typeof this[prop] !== 'function')
+                    if (restrictedKeys.indexOf(prop) === -1)
+                        str += '"' + prop + ':' + this[prop] + ',';
+            }
+            return str;
+        };
+
+        var o = {
+            name: 'Aditya',
+            date: +(new Date()),
+            id: 'ffdf5651',
+            role: 2
+        };
+
+
+        console.log(JSON.stringify(o));
+
+
+
+    </script>
 </head>
 <body>
 

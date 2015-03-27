@@ -16,7 +16,10 @@
 
         // function to check for primes
         function isPrime(num) {
-
+            for (var i = 2, len = Math.sqrt(num); i <= len; i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
         }
 
         // test cases
@@ -28,7 +31,12 @@
 
         // function to get factorials
         function factorial(num) {
-
+            switch (num) {
+                case 0: return 1;
+                case 1: return 1;
+                default: if(num < 0) throw 'Invalid input';
+                    else return num * factorial(num - 1);
+            }
         }
 
         // test cases
@@ -39,6 +47,29 @@
             Test.assert(ex, 'Invalid input');
         }
         Test.assert(factorial(5), 120);
+
+        // function schematester
+        function Schema(schema) {
+            this.schema = schema;
+            this.sortedKeys = Object.keys(schema).sort();
+        }
+
+        Schema.prototype.test = function (obj) {
+
+
+        };
+
+        var schema = new Schema({
+            name: 'string',
+            id: 'number',
+            date: 'object'
+        });
+
+        Test.assert(schema.test({
+            name: 'Raymond'
+        }), false);
+
+        console.log('Done with the tests.');
 
 
 
