@@ -36,7 +36,7 @@
         try {
             factorial(-2);
         } catch (ex) {
-            Test.assert(ex.message, 'Invalid input');
+            Test.assert(ex, 'Invalid input');
         }
         Test.assert(factorial(5), 120);
 
