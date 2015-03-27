@@ -34,7 +34,7 @@
         // test cases
         Test.assert(factorial(2), 2);
         try {
-            factorial(-2);
+            Test.assert(factorial(-2), '"should throw an error - Invalid input"');
         } catch (ex) {
             Test.assert(ex, 'Invalid input');
         }
